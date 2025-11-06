@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Interaccion-LinkedIn</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<p><em>Observaciones sobre las formas en que la interacción moldea el
+tipo de contenido que deberíamos hacer para la plataforma.</em></p>
+<hr />
+<h1 id="patrones-de-interacción">1. Patrones de interacción</h1>
+<p>No todas las redes sociales siguen los mismos patrones de
+interacción. <em>Estas son algunas observaciones e hipótesis sobre los
+patrones en LinkedIn:</em></p>
+<p>Lo primero que guía la lógica de interacción son las posibilidades
+mismas de la plataforma: la interacción básica y general sucede como
+<strong>reacciones</strong> (<em>reactions</em>),
+<strong>compartidos</strong> (<em>reposts</em>) y
+<strong>comentarios</strong> (<em>comments</em>), así como
+<strong>clics</strong> y <strong>seguidos</strong> (<em>follows</em>).
+Los seguidos, sin embargo, entran en una categoría particular, pues su
+lógica convive con otra forma de interacción: los conectados
+(<em>connects</em>). Esta lógica hace parte de otro patrón de
+interacción que no sucede en lo que podríamos llamar el <em>plano
+general</em>.</p>
+<p>Lo segundo que guía la lógica de interacción son los planos de
+interacción entre cuentas. El plano general es el que permite la
+interacción con perfiles de usuario y con páginas de negocio por igual.
+El plano específico remite a las interacciones específicas entre los
+tipos de cuentas en la plataforma: (a) <strong>usuario &lt;&gt;
+negocio</strong>, (b) <strong>usuario &lt;&gt; usuario</strong>, (c)
+<strong>negocio &lt;&gt; negocio</strong>. Estos planos específicos
+fomentan patrones de interacción propios de la relación entre cuentas,
+así como expanden las posibilidades de interacción según el objetivo del
+usuario y las posibilidades específicas de la plataforma.</p>
+<p>Un usuario, por ejemplo, puede interactuar con otro usuario
+comentando en la publicación de ese perfil. También puede comentar en la
+publicación que ha hecho una página de negocio. Sin embargo, un usuario
+solo puede conectar con otro usuario, no con un negocio. A un negocio
+solo la puede seguir.</p>
+<p>Estos patrones de interacción guían la construcción de redes de
+contactos (o redes de usuarios) y, al mismo tiempo, definen el tipo de
+contenido que una cuenta hace, pues, dependiendo del tipo de interacción
+que espere, orienta las estrategias de fomento a la interacción.</p>
+<hr />
+<h1 id="usos-y-contenidos-en-linkedin">2. Usos y contenidos en
+LinkedIn</h1>
+<p>Los usos de una plataforma, por obvias razones, son la base de la que
+uno parte para ofrecer una tipología del contenido que distribuye. Los
+usos de LinkedIn son bastante específicos y eso pone a la plataforma en
+un lugar muy particular. A diferencia de otras redes sociales como
+Facebook, Instagram, Twitter o TikTok, que sí son en sí mismas <em>redes
+sociales</em>, LinkedIn es un híbrido entre lo profesional y lo social.
+Tiene la misión de “conectar a los profesionales del mundo para hacerlos
+más productivos y exitosos” <strong>(<a
+href="https://about.linkedin.com/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BD86l0j3hSI%2BfrsvgS%2Fczrg%3D%3D">linkedin.com</a>)</strong>.</p>
+<p>Esta naturaleza intermedia, en todo caso, hace que comprender sus
+usos (y, a través de ellos, el contenido que mejor se ajusta la
+plataforma) sea una tarea incómoda, pues los usuarios de la plataforma
+“desean aprender sobre empleadores, trabajos y clientes potenciales, no
+buscan entretenimiento ni matar el rato y buscan proyectar una imagen
+profesional, no tanto social” (<strong><a
+href="https://www.ojcmt.net/download/come-for-a-job-stay-for-the-socializing-gratifications-received-from-linkedin-usage-3956.pdf">Brewer,
+2018</a></strong>). Las tipos comunes de contenido que funcionan en
+otras redes sociales quedan cojos, pues el fin último que dan los
+usuarios no es el mismo.</p>
+<h2 id="sobre-la-gratificación">2.1. Sobre la gratificación</h2>
+<p>Nadie entra LinkedIn por diversión. Sin embargo, para algunos, sí hay
+gratificación en el uso de la plataforma y, por ahí, debe ir la creación
+de contenido.</p>
+<p>Según un estudio de <strong>Brewer (2018)</strong>, quienes usan
+LinkedIn encuentran en el uso de la aplicación tres tipos de beneficio:
+primero, beneficios en cuestiones laborales y/o relacionadas con la
+búsqueda de empleo; segundo, una gratificación asociada el aspecto
+social del trabajo; tercero, la sensación positiva de conectar con
+colegas, conocidos, familiares y amigos. De estas gratificaciones, parte
+la motivación de los usuarios a mantenerse activos en la plataforma.</p>
+<p>El segundo tipo de beneficio es, para Brewer, el más interesante:</p>
+<blockquote>
+<p>Respondents may be concerned with how they appear to others because
+this could affect career prospects, but a hedonic motivation may also be
+present; customers may find it interesting and even entertaining to
+monitor the career progression of their connections. (p. 357)</p>
+</blockquote>
+<p>Para nosotros también. A la gente le preocupa hacer el ridículo
+frente a otros, le disgusta compararse y sentirse menos que los otros y
+le estresa la búsqueda de empleo; de ahí, el estigma asociado al tipo de
+publicaciones que se espera en LinkedIn. No obstante, a la gente la
+motiva la curiosidad por lo que están haciendo sus pares. Hay, también,
+una motivación (de doble filo) egoísta, por mostrar su propia progresión
+hacia los pares.</p>
+<h2 id="una-tipología-del-contenido">2.2. Una tipología del
+contenido</h2>
+<p>De acuerdo con <strong><a
+href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4959114">Usera
+et al. (2024)</a></strong>, los usuarios tienden a…</p>
+<ol type="1">
+<li><p>publicar acerca de temas personales de orden profesional, como un
+cambio de carrera, un logro académico, una buena/mala decisión de
+negocios, etc…;</p></li>
+<li><p>publicar sobre sí mismos en relación a su actividad productividad
+y su habilidad productiva;</p></li>
+<li><p>celebrar otros individuos, agradeciendo, felicitando, haciendo
+homenaje;</p></li>
+<li><p>ofrecer descubrimientos anecdóticos, compartir información de la
+industria o de la comunidad a la que pertenecen, o compartir producción
+intelectual, artística y/o comercial propia;</p></li>
+<li><p>hacer observaciones sobre causas sociales que demuestren su
+propio compromiso ético o moral y/o sobre causas particulares a su
+carrera profesional que, igualmente, permita una comprensión de su
+visión de mundo.</p></li>
+</ol>
+<p>Partiendo de ahí, <strong>Usera et al. (2024)</strong> ofrecen una
+categorización de estos tipos de contenido según la frecuencia de
+publicación, así:</p>
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Frecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Business</em></td>
+<td>43.29%</td>
+</tr>
+<tr>
+<td><em>Personal</em></td>
+<td>22.40%</td>
+</tr>
+<tr>
+<td><em>Expertise</em></td>
+<td>19.07%</td>
+</tr>
+<tr>
+<td><em>Interpersonal</em></td>
+<td>9.79%</td>
+</tr>
+<tr>
+<td><em>Observances</em></td>
+<td>5.45%</td>
+</tr>
+</tbody>
+</table>
+<p>Estos tipos de contenido son un reflejo del aparente propósito propio
+de una <em>red para profesionales</em>. Los usuarios quieren mostrarse
+como atractivos/contratables para futuros clientes, empleadores o
+colegas: este propósito forma la construcción de redes y de comunidades.
+Aquí me queda la duda sobre la forma en que se construyen redes o
+nichos. ¿Hasta qué punto se forman realmente comunidades en la
+plataforma y el <em>feed</em> no es solo un marketplace?</p>
+<h2
+id="tipo-de-contenido-que-produce-más-interacción-y-que-produce-menos-interacción">2.3.
+Tipo de contenido que produce más interacción y que produce menos
+interacción</h2>
+<p>De acuerdo con el mismo estudio de <strong>Usera et al
+(2024)</strong>, el contenido que más interacción produce es el
+<strong>interpersonal</strong> (es decir, <em>aquel que celebra a otros
+individuos, a otras comunidades y/o a otros negocios</em>). En nuestro
+caso, tenemos evidencia anecdótica para afirmar que esto es cierto
+(véase, [[Publicación sobre la caracterización del patrimonio geológico
+mundial|esta]] y [[Publicación sobre la mención de honor
+Humboldt-Caldas|esta]] publicación). Ahora, a mí, me parece una
+afirmación razonable, pues, tal como he entendido la plataforma desde
+que comencé a interactuar con ella, para quienes la usamos casualmente,
+LinkedIn es la red social a la que uno acude para celebrar logros,
+buscar trabajo o celebrar haber encontrado trabajo.</p>
+<p>Sin embargo, cabe notar que el contenido interpersonal y el contenido
+observacional están categorizados como los tipos de contenido menos
+producidos. Hay espacio para preguntarnos si esta menor producción no
+implica también un mayor ‘peso’ en la cuantificación de la interacción.
+Los autores del estudio teorizan, por ejemplo, que claramente esta
+cantidad limitada de este tipo particular de contenido se cambia la
+lógica del feed y, por tanto, refresca al usuario que consume; por el
+otro lado, también teorizan que su efectiva se debe a que el
+interpersonal involucra un patrón de interacción mediado por menciones
+directas.</p>
+<p>Aquel estudio menciona también que las publicaciones
+<strong>observacionales</strong> (dígase, <em>aquellas que sacan a la
+luz actividades de orden filantrópica, social o ética propia o ajena,
+pero, siempre, asociada a los valores propios de quien comparte o
+publica</em>) son las más competitivas en términos de reacciones. En
+cambio, las publicaciones <strong>comerciales</strong> (i. e.,
+<em>aquellas en que se promocionan servicios o productos</em>) son las
+de peor desempeño. Hasta aquí, nada que no se aplicable bajo las lógicas
+habituales de una red social.</p>
+<h2 id="el-contenido-experto">2.4. El contenido ‘experto’</h2>
+<p>Lo que sí es único a la plataforma es el caso del contenido
+<strong>experto</strong>. Aquí hay varias aristas sobre las cuales vale
+la pena pensar.</p>
+<p>De acuerdo con <strong>Usera et al. (2024)</strong>, un motivo
+técnico por el que este tipo de contenido, en el que un perfil
+individual o una página de negocio “expone sus conocimientos sobre su
+industria, su disciplina y/o su oficio,” es que, al menos, una de cada
+tres de estas publicaciones lleva un enlace externo. Este hiperenlace
+hace que el usuario que ha de interactuar con la publicación salga de la
+plataforma. Esa salida rompe los patrones de interacción.</p>
+<p>Además…,</p>
+<blockquote>
+<p>We were not able to see a whether a post’s link was clicked on, known
+as a post’s click-through-rate (CTR), so it could be the case that
+Expertise posts are high performers in CTR, and that the lower amount of
+reactions and comments is a sign that users are engaging with the web
+link and immersing themselves into what is there (and not returning to
+their LinkedIn feeds). <strong>(Usera et al, 2025 p. 27)</strong></p>
+</blockquote>
+<p>Otro motivo puede estar relacionado con los llamado <strong>Lunatic
+Posts</strong>. (Véase <a
+href="https://www.reddit.com/r/LinkedInLunatics/">r/LunaticLinkedIn</a>.)
+El estigma alrededor del contenido de LinkedIn es causa de este tipo de
+publicaciones en los que alguien intenta demostrar una observación que
+ha hecho, un aprendizaje que ha obtenido o un saber propio “y experto”
+de manera pobre. La pobreza en estas publicaciones tiene demasiadas
+características, pero, en general, suele ser un error pragmático del
+valor de esta clase de comunicación.</p>
+<p>¿Qué hacer, entonces, con el contenido <strong>experto</strong>? A
+priori, claramente, evitarlo.</p>
+<h1 id="hipótesis-prácticas-a-priori">3. Hipótesis prácticas a
+priori</h1>
+<h2 id="razonamiento-1">Razonamiento #1</h2>
+
+<pre class="mermaid">graph TD
+
+p1[Para que nuestro contenido en LinkedIn funcione, debe apelar al fin con el que entra el usuario a LinkedIn.]
+
+p2[Un usuario no entra a LinkedIn para divertirse. En cambio, entra con un fin socio-profesional. Este fin puede responder al ego, a la curiosidad o a la necesidad práctica.]
+
+c1[Para que nuestro contenido funcione, entonces, debe responder al ego profesional del usuario, a su curiosidad o a una de sus necesidades prácticas.]
+
+subgraph one
+p1 --> c1
+p2 --> c1
+end
+
+
+p3[Un contenido en LinkedIn funciona cuando incentiva algún tipo de interacción.]
+
+p4[Una interacción se incentiva cuando se tiene claro el patrón habitual de interacción en el plano entre la cuenta que produce y la cuenta que consume.]
+
+p5[Se apela a los patrones habituales de interacción cuando se apela al fin con el que la cuenta que consume, i. e. el usuario, entra a la plataforma.]
+
+subgraph two
+p3 --> p4 --> p5 -- Por tanto --> p1
+end
+
+
+p6[El contenido interpersonal es aquel que celebra, agradece u honra a un individuo/colectivo. Es, también, en el que alguien realza lo que otro hizo o está por hacer.]
+
+p7[Responder al ego profesional implica celebrar, agradecer, honrar o exaltar lo un individuo/colectivo hizo, está haciendo o hará.]
+
+c2[El contenido interpersonal responde al ego profesional.]
+
+subgraph three
+p6 --> c2
+p7 --> c2
+end
+
+c3[El contenido interpersonal es contenido que funciona.]
+
+c1 --> c3
+c2 --> c3
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+</script>
+</body>
+</html>
